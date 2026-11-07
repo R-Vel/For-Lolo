@@ -1,0 +1,10 @@
+{
+  "name": "Number Game",
+  "short_name": "Number Game",
+  "description": "Predict 1 or 2",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#edf3f8",
+  "theme_color": "#143c62"
+}

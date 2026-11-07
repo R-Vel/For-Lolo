@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="./manifest.webmanifest">
+<title>Number Game</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main class="shell">
+  <header class="top"><div class="brand"><div class="logo" aria-hidden="true">1·2</div><div><h1>Grandpa's Number Game</h1><p class="sub">Simple buttons. Automatic answers.</p></div></div></header>
+  <section id="game">
+    <section class="panel">
+      <label class="label" id="inputQuestion">Which number are you entering?</label>
+      <div class="mode-grid hidden" id="modeControls" role="group" aria-label="Input column"><button type="button" id="modeA" class="mode active" aria-pressed="true">Column A → D</button><button type="button" id="modeD" class="mode" aria-pressed="false">Column D → A</button></div>
+      <p class="prompt" id="prompt">Choose the next number for A</p><p class="small" id="modeHelp" aria-live="polite"></p>
+      <div class="big-buttons"><button type="button" class="big one" id="pick1" aria-label="Enter number 1">1</button><button type="button" class="big two" id="pick2" aria-label="Enter number 2">2</button></div>
+      <div class="actions hidden" id="gameActions"><button type="button" class="btn neutral" id="undo">↶ Undo last</button><button type="button" class="btn outline" id="showHistory">View rows ↓</button></div>
+      <div class="status hidden" id="saveStatusRow"><span class="dot"></span><span id="saveStatus">Saved automatically on this device</span></div>
+      <div class="tools" id="initialTools"><button type="button" id="initialRestore" class="btn outline toolbtn">Restore saved backup</button></div>
+    </section>
+    <section class="panel hidden" id="history">
+      <div class="row-heading"><h2>Number sequence</h2><span id="rowCount" class="count"></span></div>
+      <p class="small">Newest row at the bottom. The shaded row is the latest result.</p>
+      <div class="tablewrap"><table><thead><tr><th>Row</th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead><tbody id="rows"></tbody></table></div>
+      <p class="hint">B begins in row 2, C in row 3, and D in row 4. After row 4, enter A or D and the other three values are calculated automatically.</p>
+    </section>
+    <section class="panel hidden" id="saveManager"><h2>Save and manage</h2><p class="help">Your game saves on this device automatically. For extra safety, download a backup occasionally, especially before changing phones or clearing browser data.</p>
+      <div class="tools"><button class="btn outline toolbtn" id="exportCsv">Download Excel CSV</button><button class="btn outline toolbtn" id="exportBackup">Download backup</button><button class="btn outline toolbtn" id="restoreBackup">Restore backup</button><button class="btn outline danger toolbtn" id="newGame">New sequence</button></div>
+    </section>
+  </section>
+  <footer class="footer">Works offline when saved as a file, or after installation from a website. No account or internet connection needed for calculations.</footer>
+</main>
+<input class="fileinput" type="file" id="backupFile" accept=".json,application/json" aria-label="Choose backup JSON file">
+<div id="toast" role="status" class="toast hidden"></div>
+<script src="./app.js" defer></script>
+</body>
+</html>
